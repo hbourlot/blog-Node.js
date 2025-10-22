@@ -1,15 +1,15 @@
-import { postRepository } from "@/repositories/post/json-post-repository";
 import React from "react";
 import { PostCoverImage } from "../PostCoverImage";
-import { Heading } from "../Heading";
+import { PostSummary } from "../PostSummary";
+import { findAllPublishedPost } from "@/lib/post/queries";
 
 export default async function PostsList() {
-	const posts = await postRepository.findAll();
+	const posts = await findAllPublishedPost();
 
 	return (
 		<>
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3">
-				{posts.map((post) => {
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3 mb-20">
+				{posts.slice(1).map((post) => {
 					const postLink = `/post/${post.slug}`;
 					return (
 						<div
@@ -25,19 +25,14 @@ export default async function PostsList() {
 									priority: true,
 								}}
 							/>
-							<div className="flex flex-col gap-4 sm:justify-center">
-								<time
-									className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-300 shadow-lg hover:brightness-105 transition transition-discrete dark:bg-slate-500 px-3 py-1 text-sm font-medium"
-									dateTime={post.createdAt}>
-									{post.createdAt}
-								</time>
-								<Heading
-									size="h2"
-									href={postLink}>
-									{post.title}
-								</Heading>
-								<p>{post.excerpt}</p>
-							</div>
+							<PostSummary
+								postHeading="h2"
+								postLink={postLink}
+								createdAt={post.createdAt}
+								updatedAt={post.updatedAt}
+								excerpt={post.excerpt}
+								title={post.title}
+							/>
 						</div>
 					);
 				})}
