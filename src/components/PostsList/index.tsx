@@ -1,10 +1,10 @@
 import React from "react";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostSummary } from "../PostSummary";
-import { findAllPublishedPost } from "@/lib/post/queries";
+import { findAllPublishedPostCached } from "@/lib/post/queries";
 
 export default async function PostsList() {
-	const posts = await findAllPublishedPost();
+	const posts = await findAllPublishedPostCached();
 
 	return (
 		<>

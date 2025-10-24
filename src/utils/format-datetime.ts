@@ -1,6 +1,5 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { enUS, pt } from "date-fns/locale";
-import React from "react";
 
 export function formatDateTime(rawDate: string): string {
 	const date = new Date(rawDate);

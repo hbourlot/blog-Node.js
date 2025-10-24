@@ -14,7 +14,7 @@ export function Footer() {
 						{" "}
 						The Blog
 					</Link> */}
-					<SmoothAnchor href="/">Pomodoro</SmoothAnchor>
+					<SmoothAnchor href="/">The Blog</SmoothAnchor>
 				</span>
 				<ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
 					<li>

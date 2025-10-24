@@ -1,10 +1,10 @@
 import React from "react";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostSummary } from "../PostSummary";
-import { findAllPublishedPost } from "@/lib/post/queries";
+import { findAllPublishedPostCached } from "@/lib/post/queries";
 
 export async function PostFeatured() {
-	const posts = await findAllPublishedPost();
+	const posts = await findAllPublishedPostCached();
 	const post = posts[0];
 
 	const postLink = `/post/${post.slug}`;

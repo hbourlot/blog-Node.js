@@ -19,7 +19,7 @@ const sizeMap: Record<
 	h4: { Tag: "h4", classes: "text-xl font-semibold" },
 };
 
-export function Heading({
+export function PostHeading({
 	size = "h2",
 	children,
 	href = "#",
@@ -28,7 +28,8 @@ export function Heading({
 
 	return (
 		<div>
-			<Tag className={`${classes} leading-tight dark:hover:text-slate-300 hover:text-slate-600`}>
+			<Tag
+				className={`${classes} leading-tight dark:hover:text-slate-300 hover:text-slate-600`}>
 				<Link href={href}>{children}</Link>
 			</Tag>
 		</div>

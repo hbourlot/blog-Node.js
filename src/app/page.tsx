@@ -6,9 +6,6 @@ export default async function HomePage() {
 		<>
 			<Suspense fallback={<SpinLoader />}>
 				<PostFeatured />
-			</Suspense>
-			<p className="text-justify"></p>
-			<Suspense fallback={<SpinLoader />}>
 				<PostsList />
 			</Suspense>
 		</>
